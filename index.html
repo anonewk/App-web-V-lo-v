@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Velov Lyon</title>
+    <meta name="description" content="carte interactive de velo lyon">
+    <link rel="stylesheet" href="css/styles.css" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <main>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+                <h1>
+                    <a class="navbar-brand" href="#"><span class="blue">V</span>élo<span class="blue">'v</span></a>
+                    <span class="navbar-toggler-icon"></span> </h1>
+    
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <input type="checkbox" id="input_toggle">
+                    <label for="input_toggle" id="label_toggle">Menu<i></i><i></i><i></i><i></i></label>
+                    <ul id="myScrollspy" class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#presentation">Présentation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#reservation">réservation</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div id="presentation">
+            <div class="row">
+
+                <h2 class="blue">Présentation</h2>
+                <p>
+                    Notre <span class="blue">application web</span> vous permet de réserver un vélo à <span class="blue">Lyon</span> en quelques clics ! <br />
+                    Consultez le <span class="blue">diaporama ci-dessous</span> afin d'obtenir <span class="blue">plus d'informations</span> sur notre service.
+                </p>
+            </div>
+        </div>
+        <div class="slider-container">
+            <div id="slider">
+                <div id="arrows">
+                    <div id="leftArrow">
+                        <a href="#slider-container" class="control_prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    </div>
+                    <div>
+                        <input id="pausebouton" type="button" value="Pause">
+                    </div>
+                    <div id="rightArrow">
+                        <a href="#slider-container" class="control_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    </div>
+
+                </div>
+                <ul id="pause">
+                    <li class="slides">
+                        <div class="sliderText white">
+                            <div class="sliderTextChild">
+                                <p>
+                                    Sélectionnez une station pour afficher ses informations.
+                                </p>
+                                <p>
+                                    Si l'icône est <span class="red">rouge</span>, la station est fermée.
+                                </p>
+                                <p>
+                                    Si l'icône est <span class="green">verte</span>, réservez votre vélo !
+                                </p>
+                            </div>
+                        </div>
+                        <img src="image/bg1.jpg" alt="explication1">
+                    </li>
+                    <li class="slides">
+                        <div class="sliderText white">
+                            <div class="sliderTextChild">
+                                <p>
+                                    Pour réserver un vélo,</p>
+
+                                <p>
+                                    signez dans le champ prévu à cet effet.
+                                </p>
+
+                                <p>
+                                    Cliquez ensuite sur le bouton "Signer" et le tour est joué !
+                                </p>
+                            </div>
+                        </div>
+                        <img src="image/bg3.jpg" alt="explication2">
+                    </li>
+                    <li class="slides">
+                        <div class="sliderText white">
+                            <div class="sliderTextChild">
+                                <p>
+                                    Votre réservation s'affichera dans le pied de page.
+                                </p>
+                                <p>
+                                    Elle expire automatiquement au bout de 20 minutes.
+                                </p>
+
+                            </div>
+                        </div>
+                        <img src="image/bg3.jpg" alt="explication3">
+                    </li>
+                </ul>
+
+                <div id="backgroundProgressBar">
+                    <div id="progressBar"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <hr>
+
+        <div id="slidereservation" class="container target">
+            <div class="row">
+                <div class="col-12 text-center mt-5 mb-5">
+                    <h2 class="blue">Carte de réservation</h2>
+                    <p>
+                        Naviguez dans <span class="blue">Lyon</span> à travers cette <span class="blue">carte interactive</span> et <span class="blue">réservez votre vélo</span> dès maintenant !
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="sectionMap">
+
+            <div id="carte" class="mapWidth" style="width: 100%; height: 530px;">
+                <!-- Ici s'affichera la carte -->
+            </div>
+
+            <div id="station_info">
+                <div id="infoStation">
+                    <p class="blue text-center mb-5">Informations sur la station</p>
+                    <p id="address"></p>
+                    <p id="status"></p>
+                    <p id="places"></p>
+                    <p id="availableBikes"></p>
+                    <p id="moreText" class="green"></p>
+                    <button id="book">Réserver</button>
+                    <p id="messageErreur" class="message">La réservation est impossible à cette station</p>
+                </div>
+                <div id="infosPersonn">
+                    <form method="get">
+                        <div class="infosPersonn">
+                            <label for="name">Nom : </label>
+                            <input type="text" name="name" id="namePersonn">
+                        </div>
+                        <div class="infosPersonn">
+                            <label for="surname">Prénom : </label>
+                            <input type="text" name="<surnam></surnam>e" id="surnamePersonn">
+                        </div>
+                        <button id="sign">Signer</button>
+
+
+                    </form>
+                </div>
+                <div id="sketch">
+                    <canvas id="canvas"></canvas>
+                    <div class="canvasButtons">
+                        <button id="signer">Signer</button>
+                        <button id="effacerSignature">Effacer</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="votreReservation" class="container">
+            <div class="row">
+                <div class="col-12 text-center mt-5 mb-5">
+                    <h2 class="blue">Votre réservation</h2>
+                    <p>
+                        Les <span class="blue">informations de votre réservation</span> s'afficheront dans le <span class="blue">pied de page</span> ci-dessous.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <footer id="footer" class="col-12">
+                    <div id="reservation">
+                        <p id="nbVelosReservation">Vous n'avez aucune réservation en cours.</p>
+                        <p id="villeReservation"></p>
+                        <p id="adresseReservation"></p>
+                    </div>
+                    <div id="compteur"></div>
+                    <button id="annulerReservation">Annuler ma réservation</button>
+                    <img src="" id="canvasimg" alt="">
+                </footer>
+            </div>
+
+        </div>
+
+        <script src="js/ajax.js"></script>
+
+        <script src="js/slider.js"></script>
+
+
+        <script src="js/markerclusterer.js"></script>
+        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+        <script src="js/map.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuU5RQy__LmfyR4Q77dkP6JQ-MeCAPdSY&callback=Maps.initMap"></script>
+        <script src="js/canvas.js"></script>
+        <script src="js/reservation.js"></script>
+
+
+
+
+
+
+
+    </main>
+
+
+
+</body>
+
+</html>
